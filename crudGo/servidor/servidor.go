@@ -9,8 +9,8 @@ import (
 )
 
 type produto struct {
-	ID    uint32 `json:"id"`
-	Nome  string `json:"nome"`
+	ID    uint32  `json:"id"`
+	Nome  string  `json:"nome"`
 	Valor float64 `json:"valor"`
 }
 
@@ -59,7 +59,8 @@ func CriarUsuario(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte(fmt.Sprintf("Produto inserido com sucesso! Id: %d", idInserido)))
 
 }
-//teste git
+
+//vamo testar denovo
 /*// BuscarUsuarios traz todos os usuários salvos no banco de dados
 func BuscarUsuarios(w http.ResponseWriter, r *http.Request) {
 	db, erro := banco.Conectar()
