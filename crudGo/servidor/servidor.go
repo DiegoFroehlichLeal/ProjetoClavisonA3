@@ -60,6 +60,7 @@ func CriarUsuario(w http.ResponseWriter, r *http.Request) {
 
 }
 
+//vamo testar denovo
 /*// BuscarUsuarios traz todos os usuários salvos no banco de dados
 func BuscarUsuarios(w http.ResponseWriter, r *http.Request) {
 	db, erro := banco.Conectar()
