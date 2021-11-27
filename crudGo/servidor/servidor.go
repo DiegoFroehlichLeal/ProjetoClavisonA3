@@ -26,7 +26,7 @@ type insumo struct {
 	Quantidade     uint32 `json:"quantidade"`
 }
 
-// CriarProduto insere um usuário no banco de dados
+// CriarProduto cria um produto no banco
 func CriarProduto(w http.ResponseWriter, r *http.Request) {
 	corpoRequisicao, erro := ioutil.ReadAll(r.Body)
 	if erro != nil {
@@ -69,6 +69,52 @@ func CriarProduto(w http.ResponseWriter, r *http.Request) {
 
 	w.WriteHeader(http.StatusCreated)
 	w.Write([]byte(fmt.Sprintf("Produto inserido com sucesso! Id: %d", idInserido)))
+
+}
+
+// CriarMateriaPrima cria uma matetiria prima no banco
+func CriarMateriaPrima(w http.ResponseWriter, r *http.Request) {
+	corpoRequisicao, erro := ioutil.ReadAll(r.Body)
+	if erro != nil {
+		w.Write([]byte("Falha ao ler o corpo da requisição!"))
+		return
+	}
+	var materiaPrima materiaPrima
+	if erro = json.Unmarshal(corpoRequisicao, &materiaPrima); erro != nil {
+		w.Write([]byte("Erro ao converter o usuário para struct"))
+		return
+	}
+
+	db, erro := banco.Conectar()
+	if erro != nil {
+		w.Write([]byte("Erro ao converter conectar no banco de dados!"))
+		return
+	}
+	defer db.Close()
+
+	statement, erro := db.Prepare("insert into materiaPrima (nome, estoque) values (?, ?)")
+	if erro != nil {
+		w.Write([]byte("Erro ao criar o statement!"))
+		return
+	}
+	defer statement.Close()
+
+	insercao, erro := statement.Exec(materiaPrima.Nome, materiaPrima.Estoque)
+	if erro != nil {
+		w.Write([]byte("Erro ao executar o statement!"))
+		return
+	}
+
+	idInserido, erro := insercao.LastInsertId()
+	if erro != nil {
+		w.Write([]byte("Erro ao obter o id inserido!"))
+		return
+	}
+
+	// STATUS CODES
+
+	w.WriteHeader(http.StatusCreated)
+	w.Write([]byte(fmt.Sprintf("Matéria prima inserida com sucesso! Id: %d", idInserido)))
 
 }
 

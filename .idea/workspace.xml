@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f10b529b-f4de-413d-9b96-1d1693e5198a" name="Changes" comment="testeste">
-      <change afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="f10b529b-f4de-413d-9b96-1d1693e5198a" name="Changes" comment="Criado a função de criar produto, criado as structs para materia prima e insumo.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crudGo/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/crudGo/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crudGo/servidor/servidor.go" beforeDir="false" afterPath="$PROJECT_DIR$/crudGo/servidor/servidor.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crudGo/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/crudGo/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +84,8 @@
     <MESSAGE value="testando novamente" />
     <MESSAGE value="Merge remote-tracking branch 'origin/diego' into diego" />
     <MESSAGE value="testeste" />
-    <option name="LAST_COMMIT_MESSAGE" value="testeste" />
+    <MESSAGE value="Criado a função de criar produto, criado as structs para materia prima e insumo." />
+    <option name="LAST_COMMIT_MESSAGE" value="Criado a função de criar produto, criado as structs para materia prima e insumo." />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
