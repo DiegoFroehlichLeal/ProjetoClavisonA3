@@ -22,7 +22,10 @@ func main() {
 	router := mux.NewRouter()
 	router.HandleFunc("/", indexHandler).Methods(http.MethodGet)
 
-	router.HandleFunc("/produto", servidor.CriarProduto).Methods(http.MethodPost)
+	router.HandleFunc("/produto", servidor.CriarProduto).Methods(http.MethodPost)           //cria o produto
+	router.HandleFunc("/materiaprima", servidor.CriarMateriaPrima).Methods(http.MethodPost) //cria o produto
+	router.HandleFunc("/insumo", servidor.CriarInsumo).Methods(http.MethodPost)             //cria o produto
+
 	/*router.HandleFunc("/usuarios", servidor.BuscarUsuarios).Methods(http.MethodGet)
 	router.HandleFunc("/usuarios/{id}", servidor.BuscarUsuario).Methods(http.MethodGet)
 	router.HandleFunc("/usuarios/{id}", servidor.AtualizarUsuario).Methods(http.MethodPut)
