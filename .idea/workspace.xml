@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f10b529b-f4de-413d-9b96-1d1693e5198a" name="Changes" comment="Merge remote-tracking branch 'origin/diego' into diego" />
+    <list default="true" id="f10b529b-f4de-413d-9b96-1d1693e5198a" name="Changes" comment="testeste">
+      <change afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crudGo/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/crudGo/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crudGo/servidor/servidor.go" beforeDir="false" afterPath="$PROJECT_DIR$/crudGo/servidor/servidor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crudGo/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/crudGo/templates/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,8 +36,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.formatter.settings.were.checked" value="true" />
     <property name="go.import.settings.migrated" value="true" />
@@ -41,7 +50,23 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+  </component>
+  <component name="RunManager">
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="ProjetoClavisonA3" />
+      <working_directory value="$PROJECT_DIR$/crudGo" />
+      <kind value="FILE" />
+      <package value="ProjetoClavisonA3" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/crudGo/main.go" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build main.go" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
@@ -57,11 +82,13 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="testando novamente" />
     <MESSAGE value="Merge remote-tracking branch 'origin/diego' into diego" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/diego' into diego" />
+    <MESSAGE value="testeste" />
+    <option name="LAST_COMMIT_MESSAGE" value="testeste" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

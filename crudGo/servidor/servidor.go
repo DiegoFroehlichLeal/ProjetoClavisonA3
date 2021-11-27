@@ -14,8 +14,20 @@ type produto struct {
 	Valor float64 `json:"valor"`
 }
 
-// CriarUsuario insere um usuário no banco de dados
-func CriarUsuario(w http.ResponseWriter, r *http.Request) {
+type materiaPrima struct {
+	ID      uint32  `json:"id"`
+	Nome    string  `json:"nome"`
+	Estoque float64 `json:"estoque"`
+}
+
+type insumo struct {
+	IdProduto      uint32 `json:"id_produto"`
+	IdMateriaPrima string `json:"id_materia_prima"`
+	Quantidade     uint32 `json:"quantidade"`
+}
+
+// CriarProduto insere um usuário no banco de dados
+func CriarProduto(w http.ResponseWriter, r *http.Request) {
 	corpoRequisicao, erro := ioutil.ReadAll(r.Body)
 	if erro != nil {
 		w.Write([]byte("Falha ao ler o corpo da requisição!"))
