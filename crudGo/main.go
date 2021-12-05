@@ -26,10 +26,10 @@ func main() {
 	router.HandleFunc("/materiaprima", servidor.CriarMateriaPrima).Methods(http.MethodPost) //cria o produto
 	router.HandleFunc("/insumo", servidor.CriarInsumo).Methods(http.MethodPost)             //cria o produto
 
-	/*router.HandleFunc("/usuarios", servidor.BuscarUsuarios).Methods(http.MethodGet)
-	router.HandleFunc("/usuarios/{id}", servidor.BuscarUsuario).Methods(http.MethodGet)
-	router.HandleFunc("/usuarios/{id}", servidor.AtualizarUsuario).Methods(http.MethodPut)
-	router.HandleFunc("/usuarios/{id}", servidor.DeletarUsuario).Methods(http.MethodDelete)*/
+	router.HandleFunc("/produtos", servidor.BuscarProduto).Methods(http.MethodGet)
+	router.HandleFunc("/produtos/{id}", servidor.BuscarProdutoEspecifico).Methods(http.MethodGet)
+	router.HandleFunc("/produtos/{id}", servidor.AtualizarProduto).Methods(http.MethodPut)
+	router.HandleFunc("/produtos/{id}", servidor.DeletarProduto).Methods(http.MethodDelete)
 
 	fmt.Println("Escutando na porta 5000")
 	log.Fatal(http.ListenAndServe(":5000", router))

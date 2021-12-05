@@ -4,15 +4,23 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f10b529b-f4de-413d-9b96-1d1693e5198a" name="Changes" comment="Criado a função CriarMateriaPrima.">
+    <list default="true" id="f10b529b-f4de-413d-9b96-1d1693e5198a" name="Changes" comment="Criado função CriarInsumo.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crudGo/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/crudGo/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crudGo/servidor/servidor.go" beforeDir="false" afterPath="$PROJECT_DIR$/crudGo/servidor/servidor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crudGo/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/crudGo/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
   </component>
   <component name="GOROOT" url="file://$PROJECT_DIR$/../../../../../Program Files/Go" />
   <component name="Git.Settings">
@@ -34,10 +42,12 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
     <property name="go.formatter.settings.were.checked" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
@@ -87,7 +97,8 @@
     <MESSAGE value="testeste" />
     <MESSAGE value="Criado a função de criar produto, criado as structs para materia prima e insumo." />
     <MESSAGE value="Criado a função CriarMateriaPrima." />
-    <option name="LAST_COMMIT_MESSAGE" value="Criado a função CriarMateriaPrima." />
+    <MESSAGE value="Criado função CriarInsumo." />
+    <option name="LAST_COMMIT_MESSAGE" value="Criado função CriarInsumo." />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

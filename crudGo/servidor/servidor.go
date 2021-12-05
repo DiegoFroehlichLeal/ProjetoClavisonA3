@@ -4,8 +4,10 @@ import (
 	"crud/banco"
 	"encoding/json"
 	"fmt"
+	"github.com/gorilla/mux"
 	"io/ioutil"
 	"net/http"
+	"strconv"
 )
 
 type produto struct {
@@ -164,9 +166,8 @@ func CriarInsumo(w http.ResponseWriter, r *http.Request) {
 
 }
 
-//vamo testar denovo
-/*// BuscarUsuarios traz todos os usuários salvos no banco de dados
-func BuscarUsuarios(w http.ResponseWriter, r *http.Request) {
+// BuscarProduto traz todos os usuários salvos no banco de dados
+func BuscarProduto(w http.ResponseWriter, r *http.Request) {
 	db, erro := banco.Conectar()
 	if erro != nil {
 		w.Write([]byte("Erro ao conectar com o banco de dados!"))
@@ -174,34 +175,34 @@ func BuscarUsuarios(w http.ResponseWriter, r *http.Request) {
 	}
 	defer db.Close()
 
-	linhas, erro := db.Query("select * from usuario")
+	linhas, erro := db.Query("select * from produto")
 	if erro != nil {
-		w.Write([]byte("Erro ao buscar os usuários"))
+		w.Write([]byte("Erro ao buscar os produtos"))
 		return
 	}
 	defer linhas.Close()
 
-	var usuarios []usuario
+	var produtos []produto
 	for linhas.Next() {
-		var usuario usuario
+		var produto produto
 
-		if erro := linhas.Scan(&usuario.ID, &usuario.Nome, &usuario.Email); erro != nil {
+		if erro := linhas.Scan(&produto.ID, &produto.Nome, &produto.Valor); erro != nil {
 			w.Write([]byte("Erro ao escanear o usuário"))
 			return
 		}
 
-		usuarios = append(usuarios, usuario)
+		produtos = append(produtos, produto)
 	}
 
 	w.WriteHeader(http.StatusOK)
-	if erro := json.NewEncoder(w).Encode(usuarios); erro != nil {
+	if erro := json.NewEncoder(w).Encode(produtos); erro != nil {
 		w.Write([]byte("Erro ao converter os usuários para JSON"))
 		return
 	}
 }
 
-// BuscarUsuario traz um usuário específico salvo no banco de dados
-func BuscarUsuario(w http.ResponseWriter, r *http.Request) {
+// BuscarProdutoEspecifico traz um produto específico salvo no banco de dados
+func BuscarProdutoEspecifico(w http.ResponseWriter, r *http.Request) {
 	parametros := mux.Vars(r)
 
 	ID, erro := strconv.ParseUint(parametros["id"], 10, 32)
@@ -217,30 +218,30 @@ func BuscarUsuario(w http.ResponseWriter, r *http.Request) {
 	}
 	defer db.Close()
 
-	linha, erro := db.Query("select * from usuario where id = ?", ID)
+	linha, erro := db.Query("select * from produto where id = ?", ID)
 	if erro != nil {
 		w.Write([]byte("Erro ao buscar o usuário!"))
 		return
 	}
 	defer linha.Close()
 
-	var usuario usuario
+	var produto produto //usuario usuario
 	if linha.Next() {
-		if erro := linha.Scan(&usuario.ID, &usuario.Nome, &usuario.Email); erro != nil {
+		if erro := linha.Scan(&produto.ID, &produto.Nome, &produto.Valor); erro != nil {
 			w.Write([]byte("Erro ao escanear o usuário!"))
 			return
 		}
 	}
 
 	w.WriteHeader(http.StatusOK)
-	if erro := json.NewEncoder(w).Encode(usuario); erro != nil {
-		w.Write([]byte("Erro ao converter o usuário para JSON!"))
+	if erro := json.NewEncoder(w).Encode(produto); erro != nil {
+		w.Write([]byte("Erro ao converter o produto para JSON!"))
 		return
 	}
 }
 
-// AtualizarUsuario altera os dados de um usuário no banco de dados
-func AtualizarUsuario(w http.ResponseWriter, r *http.Request) {
+// AtualizarProduto altera os dados de um usuário no banco de dados
+func AtualizarProduto(w http.ResponseWriter, r *http.Request) {
 	parametros := mux.Vars(r)
 
 	ID, erro := strconv.ParseUint(parametros["id"], 10, 32)
@@ -255,9 +256,9 @@ func AtualizarUsuario(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	var usuario usuario
-	if erro := json.Unmarshal(corpoRequisicao, &usuario); erro != nil {
-		w.Write([]byte("Erro ao converter o usuário para struct"))
+	var produto produto
+	if erro := json.Unmarshal(corpoRequisicao, &produto); erro != nil {
+		w.Write([]byte("Erro ao converter o produto para struct"))
 		return
 	}
 
@@ -268,14 +269,14 @@ func AtualizarUsuario(w http.ResponseWriter, r *http.Request) {
 	}
 	defer db.Close()
 
-	statement, erro := db.Prepare("update usuario set nome = ?, email = ? where id = ?")
+	statement, erro := db.Prepare("update produto set nome = ?, valor = ? where id = ?")
 	if erro != nil {
 		w.Write([]byte("Erro ao criar o statement!"))
 		return
 	}
 	defer statement.Close()
 
-	if _, erro := statement.Exec(usuario.Nome, usuario.Email, ID); erro != nil {
+	if _, erro := statement.Exec(produto.Nome, produto.Valor, ID); erro != nil {
 		w.Write([]byte("Erro ao atualizar o usuário!"))
 		return
 	}
@@ -284,8 +285,8 @@ func AtualizarUsuario(w http.ResponseWriter, r *http.Request) {
 
 }
 
-// DeletarUsuario remove um usuário do banco de dados
-func DeletarUsuario(w http.ResponseWriter, r *http.Request) {
+// DeletarProduto remove um usuário do banco de dados
+func DeletarProduto(w http.ResponseWriter, r *http.Request) {
 	parametros := mux.Vars(r)
 	ID, erro := strconv.ParseUint(parametros["id"], 10, 32)
 	if erro != nil {
@@ -300,7 +301,7 @@ func DeletarUsuario(w http.ResponseWriter, r *http.Request) {
 	}
 	defer db.Close()
 
-	statement, erro := db.Prepare("delete from usuario where id = ?")
+	statement, erro := db.Prepare("delete from produto where id = ?")
 	if erro != nil {
 		w.Write([]byte("Erro ao criar o statement!"))
 		return
@@ -308,9 +309,9 @@ func DeletarUsuario(w http.ResponseWriter, r *http.Request) {
 	defer statement.Close()
 
 	if _, erro := statement.Exec(ID); erro != nil {
-		w.Write([]byte("Erro ao deletar o usuário!"))
+		w.Write([]byte("Erro ao deletar o produto!"))
 		return
 	}
 
 	w.WriteHeader(http.StatusNoContent)
-}*/
+}
