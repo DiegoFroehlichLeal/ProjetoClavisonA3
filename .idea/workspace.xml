@@ -4,28 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f10b529b-f4de-413d-9b96-1d1693e5198a" name="Changes" comment="add buscas atualização e deleção">
-      <change afterPath="$PROJECT_DIR$/React/my-app/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React/my-app/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React/my-app/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React/my-app/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React/my-app/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React/my-app/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React/my-app/public/logo192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React/my-app/public/logo512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React/my-app/public/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React/my-app/public/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React/my-app/src/App.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React/my-app/src/App.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React/my-app/src/App.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React/my-app/src/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React/my-app/src/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React/my-app/src/logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React/my-app/src/reportWebVitals.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React/my-app/src/setupTests.js" afterDir="false" />
+    <list default="true" id="f10b529b-f4de-413d-9b96-1d1693e5198a" name="Changes" comment="add buscas atualização e deleção materia prima">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crudGo/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/crudGo/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crudGo/servidor/servidor.go" beforeDir="false" afterPath="$PROJECT_DIR$/crudGo/servidor/servidor.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +102,8 @@
     <MESSAGE value="Criado a função CriarMateriaPrima." />
     <MESSAGE value="Criado função CriarInsumo." />
     <MESSAGE value="add buscas atualização e deleção" />
-    <option name="LAST_COMMIT_MESSAGE" value="add buscas atualização e deleção" />
+    <MESSAGE value="add buscas atualização e deleção materia prima" />
+    <option name="LAST_COMMIT_MESSAGE" value="add buscas atualização e deleção materia prima" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
