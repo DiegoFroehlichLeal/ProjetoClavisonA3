@@ -3,6 +3,8 @@ package main
 import (
 	"crud/servidor"
 	"fmt"
+	"github.com/rs/cors"
+
 	"github.com/gorilla/mux"
 	"html/template"
 	"log"
@@ -12,6 +14,17 @@ import (
 var templates *template.Template
 
 func main() {
+	mux1 := http.NewServeMux()
+	mux1.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		w.Write([]byte("{\"hello\": \"world\"}"))
+	})
+
+	// cors.Default() setup the middleware with default options being
+	// all origins accepted with simple methods (GET, POST). See
+	// documentation below for more options.
+	handler := cors.Default().Handler(mux1)
+	http.ListenAndServe(":8080", handler)
 	// CRUD - CREATE, READ, UPDATE, DELETE
 
 	// CREATE - POST
