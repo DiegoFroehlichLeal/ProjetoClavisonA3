@@ -315,3 +315,153 @@ func DeletarProduto(w http.ResponseWriter, r *http.Request) {
 
 	w.WriteHeader(http.StatusNoContent)
 }
+
+// BuscarMateriaPrima traz todas as mp salvas no banco de dados
+func BuscarMateriaPrima(w http.ResponseWriter, r *http.Request) {
+	db, erro := banco.Conectar()
+	if erro != nil {
+		w.Write([]byte("Erro ao conectar com o banco de dados!"))
+		return
+	}
+	defer db.Close()
+
+	linhas, erro := db.Query("select * from materia_prima")
+	if erro != nil {
+		w.Write([]byte("Erro ao buscar os produtos"))
+		return
+	}
+	defer linhas.Close()
+
+	var materiasPrimas []materiaPrima
+	for linhas.Next() {
+		var materiaPrima materiaPrima
+
+		if erro := linhas.Scan(&materiaPrima.ID, &materiaPrima.Nome, &materiaPrima.Estoque); erro != nil {
+			w.Write([]byte("Erro ao escanear o materia prima"))
+			return
+		}
+
+		materiasPrimas = append(materiasPrimas, materiaPrima)
+	}
+
+	w.WriteHeader(http.StatusOK)
+	if erro := json.NewEncoder(w).Encode(materiasPrimas); erro != nil {
+		w.Write([]byte("Erro ao converter os usuários para JSON"))
+		return
+	}
+}
+
+// DeletarMateriaPrima deleta uma materia prima do banco de dados
+func DeletarMateriaPrima(w http.ResponseWriter, r *http.Request) {
+	parametros := mux.Vars(r)
+	ID, erro := strconv.ParseUint(parametros["id"], 10, 32)
+	if erro != nil {
+		w.Write([]byte("Erro ao converter o parâmetro para inteiro"))
+		return
+	}
+
+	db, erro := banco.Conectar()
+	if erro != nil {
+		w.Write([]byte("Erro ao conectar no banco de dados!"))
+		return
+	}
+	defer db.Close()
+
+	statement, erro := db.Prepare("delete from materia_prima where id = ?")
+	if erro != nil {
+		w.Write([]byte("Erro ao criar o statement!"))
+		return
+	}
+	defer statement.Close()
+
+	if _, erro := statement.Exec(ID); erro != nil {
+		w.Write([]byte("Erro ao deletar o produto!"))
+		return
+	}
+
+	w.WriteHeader(http.StatusNoContent)
+}
+
+// AtualizarMateriaPrima altera os dados da materia prima no banco de dados
+func AtualizarMateriaPrima(w http.ResponseWriter, r *http.Request) {
+	parametros := mux.Vars(r)
+
+	ID, erro := strconv.ParseUint(parametros["id"], 10, 32)
+	if erro != nil {
+		w.Write([]byte("Erro ao converter o parâmetro para inteiro"))
+		return
+	}
+
+	corpoRequisicao, erro := ioutil.ReadAll(r.Body)
+	if erro != nil {
+		w.Write([]byte("Erro ao ler o corpo da requisição!"))
+		return
+	}
+
+	var materiaPrima materiaPrima
+	if erro := json.Unmarshal(corpoRequisicao, &materiaPrima); erro != nil {
+		w.Write([]byte("Erro ao converter o produto para struct"))
+		return
+	}
+
+	db, erro := banco.Conectar()
+	if erro != nil {
+		w.Write([]byte("Erro ao conectar no banco de dados!"))
+		return
+	}
+	defer db.Close()
+
+	statement, erro := db.Prepare("update materia_prima set nome = ?, estoque = ? where id = ?")
+	if erro != nil {
+		w.Write([]byte("Erro ao criar o statement!"))
+		return
+	}
+	defer statement.Close()
+
+	if _, erro := statement.Exec(materiaPrima.Nome, materiaPrima.Estoque, ID); erro != nil {
+		w.Write([]byte("Erro ao atualizar o usuário!"))
+		return
+	}
+
+	w.WriteHeader(http.StatusNoContent)
+
+}
+
+// BuscarMateriaPrimaEspecifica traz um produto específico salvo no banco de dados
+func BuscarMateriaPrimaEspecifica(w http.ResponseWriter, r *http.Request) {
+	parametros := mux.Vars(r)
+
+	ID, erro := strconv.ParseUint(parametros["id"], 10, 32)
+	if erro != nil {
+		w.Write([]byte("Erro ao converter o parâmetro para inteiro"))
+		return
+	}
+
+	db, erro := banco.Conectar()
+	if erro != nil {
+		w.Write([]byte("Erro ao conectar com o banco de dados!"))
+		return
+	}
+	defer db.Close()
+
+	linha, erro := db.Query("select * from materia_prima where id = ?", ID)
+	if erro != nil {
+		w.Write([]byte("Erro ao buscar o usuário!"))
+		return
+	}
+	defer linha.Close()
+
+	var materiaPrima materiaPrima
+	if linha.Next() {
+		if erro := linha.Scan(&materiaPrima.ID, &materiaPrima.Nome, &materiaPrima.Estoque); erro != nil {
+			w.Write([]byte("Erro ao escanear o usuário!"))
+			return
+		}
+	}
+
+	w.WriteHeader(http.StatusOK)
+	if erro := json.NewEncoder(w).Encode(materiaPrima); erro != nil {
+		w.Write([]byte("Erro ao converter o produto para JSON!"))
+		return
+	}
+}

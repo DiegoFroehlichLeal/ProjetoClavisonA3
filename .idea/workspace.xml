@@ -4,11 +4,28 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f10b529b-f4de-413d-9b96-1d1693e5198a" name="Changes" comment="Criado função CriarInsumo.">
+    <list default="true" id="f10b529b-f4de-413d-9b96-1d1693e5198a" name="Changes" comment="add buscas atualização e deleção">
+      <change afterPath="$PROJECT_DIR$/React/my-app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/React/my-app/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/React/my-app/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/React/my-app/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/React/my-app/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/React/my-app/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/React/my-app/public/logo192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/React/my-app/public/logo512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/React/my-app/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/React/my-app/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/React/my-app/src/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/React/my-app/src/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/React/my-app/src/App.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/React/my-app/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/React/my-app/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/React/my-app/src/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/React/my-app/src/reportWebVitals.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/React/my-app/src/setupTests.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crudGo/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/crudGo/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crudGo/servidor/servidor.go" beforeDir="false" afterPath="$PROJECT_DIR$/crudGo/servidor/servidor.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crudGo/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/crudGo/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,11 +53,15 @@
     <option name="indexEntireGoPath" value="false" />
   </component>
   <component name="ProjectId" id="21R1JM5WBJOzHNk1AqP8bsE8By9" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -57,6 +78,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RunManager">
@@ -92,13 +114,15 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="testando novamente" />
     <MESSAGE value="Merge remote-tracking branch 'origin/diego' into diego" />
     <MESSAGE value="testeste" />
     <MESSAGE value="Criado a função de criar produto, criado as structs para materia prima e insumo." />
     <MESSAGE value="Criado a função CriarMateriaPrima." />
     <MESSAGE value="Criado função CriarInsumo." />
-    <option name="LAST_COMMIT_MESSAGE" value="Criado função CriarInsumo." />
+    <MESSAGE value="add buscas atualização e deleção" />
+    <option name="LAST_COMMIT_MESSAGE" value="add buscas atualização e deleção" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
