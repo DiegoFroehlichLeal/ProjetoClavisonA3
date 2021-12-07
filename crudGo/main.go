@@ -24,7 +24,7 @@ func main() {
 	// all origins accepted with simple methods (GET, POST). See
 	// documentation below for more options.
 	handler := cors.Default().Handler(mux1)
-	http.ListenAndServe(":8080", handler)
+	http.ListenAndServe(":5000", handler)
 	// CRUD - CREATE, READ, UPDATE, DELETE
 
 	// CREATE - POST
