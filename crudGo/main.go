@@ -42,7 +42,7 @@ func main() {
 
 	handler := c.Handler(router)
 
-	fmt.Println("Ouvindo na porta 5000")
+	fmt.Println("Ouvindo na porta 5000 11111")
 	log.Fatal(http.ListenAndServe(":5000", handler))
 
 }
