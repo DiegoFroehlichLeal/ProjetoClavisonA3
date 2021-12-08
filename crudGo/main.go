@@ -3,37 +3,20 @@ package main
 import (
 	"crud/servidor"
 	"fmt"
-	"github.com/rs/cors"
-
 	"github.com/gorilla/mux"
-	"html/template"
+	"github.com/rs/cors"
 	"log"
 	"net/http"
 )
 
-var templates *template.Template
-
 func main() {
-	mux1 := http.NewServeMux()
-	mux1.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Content-Type", "application/json")
-		w.Write([]byte("{\"hello\": \"world\"}"))
-	})
-
-	// cors.Default() setup the middleware with default options being
-	// all origins accepted with simple methods (GET, POST). See
-	// documentation below for more options.
-	handler := cors.Default().Handler(mux1)
-	http.ListenAndServe(":5000", handler)
 	// CRUD - CREATE, READ, UPDATE, DELETE
 
 	// CREATE - POST
 	// READ - GET
 	// UPDATE - PUT
 	// DELETE - DELETE
-	templates = template.Must(template.ParseGlob("templates/*.html"))
 	router := mux.NewRouter()
-	router.HandleFunc("/", indexHandler).Methods(http.MethodGet)
 
 	router.HandleFunc("/produto", servidor.CriarProduto).Methods(http.MethodPost)     //cria o produto
 	router.HandleFunc("/mprima", servidor.CriarMateriaPrima).Methods(http.MethodPost) //cria o produto
@@ -50,11 +33,16 @@ func main() {
 	router.HandleFunc("/mprimas/{id}", servidor.AtualizarMateriaPrima).Methods(http.MethodPut)
 	router.HandleFunc("/mprimas/{id}", servidor.DeletarMateriaPrima).Methods(http.MethodDelete)
 
-	fmt.Println("Escutando na porta 5000")
-	log.Fatal(http.ListenAndServe(":5000", router))
-}
+	c := cors.New(cors.Options{
+		AllowedOrigins:   []string{"http://*:3000"},
+		AllowCredentials: true,
+		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE"},
+		AllowedHeaders:   []string{"Accept", "Authorization", "Content-Type", "X-CSRF-Token"},
+	})
 
-func indexHandler(w http.ResponseWriter, r *http.Request) {
-	templates.ExecuteTemplate(w, "index.html", nil)
+	handler := c.Handler(router)
+
+	fmt.Println("Ouvindo na porta 5000")
+	log.Fatal(http.ListenAndServe(":5000", handler))
 
 }
